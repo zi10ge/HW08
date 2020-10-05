@@ -1,5 +1,5 @@
 ---
-- name war collector
+- name: war collector
   hosts: col
   become: yes
 
