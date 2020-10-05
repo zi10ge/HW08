@@ -1,1 +1,22 @@
 ---
+- name war collector
+  hosts: col
+  become: yes
+
+  tasks:
+    - name: update apt cache
+      apt: update_cache=true
+
+    - name: Install packages
+      apt: pkg={{ item }} state=latest
+      with_items:
+        - default-jdk
+        - maven
+        - git
+
+    - name: clone boxfuse
+      git: repo=https://github.com/boxfuse/boxfuse-sample-java-war-hello.git dest=/home/boxfuse-sample-java-$
+      tags: deploy
+   
+    - name: package boxfuse war
+      command: mvn package -f /home/boxfuse-sample-java-war-hello
