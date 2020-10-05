@@ -15,7 +15,7 @@
         - git
 
     - name: clone boxfuse
-      git: repo=https://github.com/boxfuse/boxfuse-sample-java-war-hello.git dest=/home/boxfuse-sample-java-$
+      git: repo=https://github.com/boxfuse/boxfuse-sample-java-war-hello.git dest=/home/boxfuse-sample-java-war-hello
       tags: deploy
    
     - name: package boxfuse war
